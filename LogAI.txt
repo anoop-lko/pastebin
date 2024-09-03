@@ -1,0 +1,97 @@
+https://arxiv.org/pdf/2301.13415
+https://pypi.org/project/logai/
+
+OpenTelemetry log data model
+https://opentelemetry.io/docs/specs/otel/logs/data-model/
+
+LogAI
+https://github.com/salesforce/logai?tab=readme-ov-file
+
+//////////////
+Installation of logai on ububtu 22.04
+
+https://github.com/salesforce/logai
+apt remove -y unattended-upgrades
+hostnamectl set-hostname logai
+apt install -y git
+git clone https://github.com/salesforce/logai.git
+cd logai
+
+apt-get update -y
+
+apt install python3.10-venv //for ubuntu 22
+
+python3 -m venv venv
+source venv/bin/activate
+pip install logai
+
+pip install "logai[deep-learning]"
+pip install "logai[gui]"
+pip install "logai[dev]"
+
+pip install "logai[all]"
+export PYTHONPATH='.' 
+python3 gui/application.py
+ 
+ //////////////////////////////////////////////////////
+ //installation on ubuntu 24.04
+ // logai is not working with python3.12
+ 
+ 
+ apt remove -y unattended-upgrades
+ hostnamectl set-hostname logai
+ apt install -y git
+ git clone https://github.com/salesforce/logai.git
+ cd logai
+ apt install software-properties-common
+ add-apt-repository ppa:deadsnakes/ppa
+ apt update
+ 
+ apt install -y python3.10           
+ apt install -y python3.10-venv
+  
+ unlink /usr/bin/python3
+ unlink /usr/bin/python
+ ln -sv /usr/bin/python3.10 /usr/bin/python
+ ln -sv /usr/bin/python3.10 /usr/bin/python3
+  
+ cd /usr/local/logai
+ python3 -m venv venv
+ source venv/bin/activate
+ export PYTHONPATH='.' 
+ 
+ pip install logai
+ pip install "logai[deep-learning]"
+ pip install "logai[gui]"
+ pip install "logai[dev]"
+ pip install "logai[all]"  // may be used pip install --default-timeout=100 future "logai[all]"
+ 
+ //python -m nltk.downloader punkt
+ //pip install "logai[all]"
+ 
+ vim gui/application.py
+ change to this at last line
+ app.run_server(host='0.0.0.0',debug=False)
+ 
+ export PYTHONPATH='.' 
+ python3
+ >>> import nltk
+ >>> nltk.download('punkt_tab')
+ 
+ mkdir /usr/local/logai/venv/nltk_data
+ cp -R /root/nltk_data/* /usr/local/logai/venv/nltk_data/
+ mv /root/nltk_data/ /root/nltk_data_old
+ 
+ export PYTHONPATH='.' 
+ source venv/bin/activate
+ python3 gui/application.py
+ 
+ /////////////////////////////
+https://github.com/salesforce/logai/blob/main/examples/jupyter_notebook/tutorial_log_anomaly_detection.ipynb
+
+https://pkg.go.dev/github.com/tom-draper/log-analyzer#section-readme
+
+https://github.com/topics/aiops
+
+//////////////////////
+https://github.com/salesforce/logai/blob/main/examples/jupyter_notebook/tutorial_log_clustering.ipynb
