@@ -1,0 +1,23 @@
+
+Installation og go-lang
+1. make directory /usr/local/go and
+   download go files with command
+   wget https://go.dev/dl/go1.20.1.linux-amd64.tar.gz
+   
+2. Remove old installation if any
+	rm -rf /usr/local/go
+3. untar file in  directory with command
+   tar -C /usr/local -xzf go1.20.1.linux-amd64.tar.gz
+4. Add /usr/local/go/bin to the PATH environment variable.    
+	You can do this by adding the following line to 
+	your $HOME/.profile or 
+	/etc/profile (for a system-wide installation):
+for permanent path vim /etc/profile.d/example.sh
+	and add following
+    export PATH=$PATH:/usr/local/go/bin
+	After re logging path will be updated
+5. Verify that you've installed Go by opening a command prompt
+   and typing the following command:		
+    go version   
+		  
+	
